@@ -1,0 +1,1 @@
+<h1>Trang quản lý người dùng. Tên người dùng: <?= $username ?></h1>
