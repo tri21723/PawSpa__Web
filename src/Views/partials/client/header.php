@@ -1,4 +1,4 @@
-    <!-- Start: Header -->
+    
     <header id="header">
         <div class="pawspa__container pawspa__flex-between">
             <!-- Start: Logo -->
@@ -47,4 +47,3 @@
             <!-- End: Icon + Action -->
         </div>
     </header>
-    <!-- End: Header -->

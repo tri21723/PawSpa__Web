@@ -30,11 +30,11 @@ try {
 $router = new \Bramus\Router\Router();
 
 // Define routes
-require_once ROOT_DIR . '/src/routes/admin.php';
-require_once ROOT_DIR . '/src/routes/client.php';
+require_once ROOT_DIR . '/src/Routes/admin.php';
+require_once ROOT_DIR . '/src/Routes/client.php';
 
 // Set 404 Not Found
-require_once ROOT_DIR . '/src/routes/error.php';
+require_once ROOT_DIR . '/src/Routes/error.php';
 
 // Run it!
 $router->run();

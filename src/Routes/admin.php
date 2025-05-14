@@ -3,9 +3,17 @@
 $router->mount('/admin', function () use ($router) {
 
     // Define routes
-    $router->get('/dashboard', function () {
-        echo 'Dashboard Page!';
-    });
+    $router->get('/dashboard', 'App\controllers\admin\DashboardController@index');
+
+    // Service
+    $router->get('/service', 'App\controllers\admin\ServiceController@index');
+    $router->get('/service/add', 'App\controllers\admin\ServiceController@showAddService');
+    $router->get('/service/update/{id}', 'App\controllers\admin\ServiceController@showUpdateService');
+
+    // ServiceType
+    $router->get('/service-type', 'App\controllers\admin\ServiceTypeController@index');
+    $router->get('/service-type/add', 'App\controllers\admin\ServiceTypeController@showAddServiceType');
+    $router->get('/service-type/update/{id}', 'App\controllers\admin\ServiceTypeController@showUpdateServiceType');
 
     $router->get('/products', function () {
         echo 'Products Page!';

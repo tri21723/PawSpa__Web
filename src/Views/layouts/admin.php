@@ -24,7 +24,7 @@
   <!-- CSS - Library - End -->
 
   <!-- CSS - Project -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/admin-common.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('cms/assets/css/admin-common.css') ?>">
 
   <?php section('links') ?>
 </head>
@@ -49,7 +49,7 @@
   <?php section('popup') ?>
   <!-- End: Modal (popup) dùng để xác nhận các hành động -->
 
-  <script src="<?= base_url('assets/js/hidden-alert.js') ?>"></script>
+  <script src="<?= base_url('cms/assets/js/hidden-alert.js') ?>"></script>
   <!-- Link file JS -->
   <?php section('scripts') ?>
 </body>

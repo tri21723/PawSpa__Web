@@ -1,4 +1,4 @@
-    <!-- Start: Footer -->
+
     <footer id="footer">
         <div class="pawspa__container pawspa__flex-between">
             <div class="pawspa-footer__info">
@@ -83,4 +83,3 @@
             <img src="<?= base_url('assets/images/footer/footer-02.svg') ?>" alt="">
         </div>
     </footer>
-    <!-- End: Footer -->
