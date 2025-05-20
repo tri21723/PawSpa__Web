@@ -48,8 +48,23 @@ function render_view(string $view, array $data = [], string|null $layout = null)
  */
 function PDO(): \PDO
 {
-  global $PDO;
-  return $PDO;
+  static $pdo = null;
+
+    if ($pdo === null) {
+        $host = 'localhost';
+        $dbname = 'petcareweb_db';   // <--- sửa theo tên database của bạn
+        $username = 'root';
+        $password = '';       // <--- mặc định XAMPP
+
+        try {
+            $pdo = new \PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+            $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            die("Database connection failed: " . $e->getMessage());
+        }
+    }
+
+    return $pdo;
 }
 
 function base_url(string $path = '')
