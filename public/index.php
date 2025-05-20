@@ -7,8 +7,7 @@ define('VIEW_DIR', ROOT_DIR . '/src/views');
 require_once ROOT_DIR . '/vendor/autoload.php';
 require_once ROOT_DIR . '/src/utils/lib.php';
 
-define('BASE_URL', 'http://localhost:8080');
-
+define('BASE_URL', 'http://localhost/PawSpa__Web/public');
 // Conect to database
 $servername = 'localhost';
 $username = 'root';
