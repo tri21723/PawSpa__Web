@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS dùng chung -->
+     <link rel="stylesheet" href="../../../public/assets/css/commonn.css">
+    <link rel="stylesheet" href="../../../public/assets/css/reset.css">
+    <!-- <link rel="stylesheet" href="../../../public/assets/css/common.css"> -->
+    <link rel="stylesheet" href="../../../public/assets/css/header.css">
+    <link rel="stylesheet" href="../../../public/assets/css/footer.css">
+    <link rel="stylesheet" href="../../../public/assets/css/form.css">
+    <!-- CSS khác -->
+    <link rel="stylesheet" href="../../../public/assets/css/register.css">
+
+
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.min.css" />
+
+    <title>Đăng ký</title>
+</head>
+
+<body>
+    <!-- Start: Header -->
+    <header id="header">
+        <div class="pawspa__container pawspa__flex-between">
+            <!-- Start: Logo -->
+            <a href="/index.html" id="pawspa-logo" aria-label="Go to homepage" class="pawspa-header__logo">
+                <img src="../../../public/assets/images/icons/Union.svg" alt="Logo" class="pawspa-logo__image">
+                <span class="pawspa-logo__text">Pawspa</span>
+            </a>
+            <!-- End: Logo -->
+
+            <!-- Start: Navigation -->
+            <nav id="pawspa-nav">
+                <ul class="pawspa-nav__list">
+                    <li class="pawspa-nav__item">
+                        <a href="/index.html">Trang chủ</a>
+                    </li>
+                    <li class="pawspa-nav__item">
+                        <a href="#">Dịch vụ</a>
+                    </li>
+                    <li class="pawspa-nav__item">
+                        <a href="#">Blog/Tin tức</a>
+                    </li>
+                    <li class="pawspa-nav__item">
+                        <a href="#">Giới thiệu</a>
+                    </li>
+                    <li class="pawspa-nav__item">
+                        <a href="#">Liên lạc</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End: Navigation -->
+
+            <!-- Start: Icon + Action -->
+            <div class="pawspa-header__actions">
+                <a href="#" class="pawspa-icon__link" aria-label="Notifications">
+                    <img src="../../../public/assets/images/icons/noti.svg" alt="Notify" class="pawspa-icon__image">
+                </a>
+                <a href="#" class="pawspa-icon__link" aria-label="Cart">
+                    <img src="../../../public/assets/images/icons/cart.svg" alt="Cart" class="pawspa-icon__image">
+                </a>
+                <div class="pawspa-auth__links">
+                    <a href="/pages/login.html" class="pawspa-auth__link">Đăng nhập</a>
+                    <span class="pawspa-auth__separator">/</span>
+                    <a href="/pages/register.html" class="pawspa-auth__link">Đăng ký</a>
+                </div>
+            </div>
+            <!-- End: Icon + Action -->
+        </div>
+    </header>
+    <!-- End: Header -->
+
+    <!-- Start: Main -->
+    <main class="pawspa__container">
+
+        <!-- Start: Register Form Wrapper -->
+        <div class="pawspa-form__wrapper">
+            <!-- Start: Register Form -->
+            <form id="register-form" class="pawspa-form__body" action="../../Controllers/auth/registercontroller.php" method="POST">
+
+                <!-- Start: Header -->
+                <div class="pawspa-register__header">
+                    <h3 class="pawspa-register__title">Đăng ký</h3>
+                    <img src="../../../public/assets/images/Union01.svg" alt="" class="pawspa-register__icon">
+                </div>
+                <!-- End: Header -->
+
+                <div class="pawspa-form__group">
+                    <input type="text" name="fullname" class="pawspa-form__input" placeholder="Họ và tên" required
+                        aria-label="Họ và tên">
+                </div>
+
+                <div class="pawspa-form__group">
+                    <input id="phone" name="phone" type="tel" class="pawspa-form__input" placeholder="Số điện thoại"
+                        required>
+                </div>
+
+                <input type="hidden" name="phone_full" id="phone_full" />
+
+                <div class="pawspa-form__group">
+                    <input type="email" id="email" name="email" class="pawspa-form__input" placeholder="Email" required aria-label="Email">
+                </div>
+
+                <div class="pawspa-form__group">
+                    <input type="password" id="password" name="password" class="pawspa-form__input" placeholder="Mật khẩu" required minlength="6"
+                        aria-label="Mật khẩu">
+                </div>
+
+                <div class="pawspa-form__group">
+                    <input type="password" id="confirm_password" name="confirm_password" class="pawspa-form__input" placeholder="Nhập lại mật khẩu" required
+                        minlength="6" aria-label="Nhập lại mật khẩu">
+                </div>
+
+                <!-- Start: Actions -->
+                <div class="pawspa-form__actions">
+                    <input type="submit" value="Xác nhận" class="pawspa-btn pawspa-btn--primary">
+
+                    <p class="pawspa-form__link-wrapper">
+                        Bạn đã có tài khoản ?
+                        <a href="./login.html" class="pawspa-register__link--highlight">Đăng nhập</a>
+                    </p>
+
+                    <div class="pawspa-form__separator">
+                        <span>Or</span>
+                    </div>
+
+                    <a href="#" class="pawspa-btn pawspa-btn--outline pawspa-btn--social">
+                        <img src="../../../public/assets/images/icons/social-media/google.svg" alt="">
+                        Đăng nhập bằng google
+                    </a>
+                    <a href="#" class="pawspa-btn pawspa-btn--outline pawspa-btn--social">
+                        <img src="../../../public/assets/images/icons/social-media/facebook.svg" alt="">
+                        Đăng nhập bằng facebook
+                    </a>
+                </div>
+                <!-- End: Actions -->
+            </form>
+            <!-- End: Register Form -->
+
+            <!-- Start: Background Visual -->
+            <div class="pawspa-form__background pawspa-form__background--register">
+                <p class="pawspa-form__slogan">
+                    Become a member today and help protect animals!
+                </p>
+                <div class="pawspa-form__background-img">
+                    <img src="../../../public/assets/images/pngwing02.svg" alt="Chó và mèo nhìn nhau">
+                </div>
+            </div>
+            <!-- End: Background Visual -->
+
+        </div>
+        <!-- End: Register Form Wrapper -->
+
+    </main>
+    <!-- End: Main -->
+
+
+    <!-- Start: Footer -->
+    <footer id="footer">
+        <div class="pawspa__container pawspa__flex-between">
+            <div class="pawspa-footer__info">
+                <img src="../../../public/assets/images/icons/Union.svg" alt="Logo Pawspa" class="pawspa-footer__logo">
+                <p class="pawspa-footer__description">
+                    Chào mừng đến với Cuddle & Care Pets! Chúng tôi cung cấp các dịch vụ chăm
+                    sóc và tư vấn sức khỏe cho thú cưng của bạn.
+                </p>
+                <div class="pawspa-footer__contact">
+                    <div class="pawspa-footer__contact-item">
+                        <img src="../../../public/assets/images/icons/letter.svg" alt="Email" class="pawspa-footer__contact-icon">
+                        <a href="mailto:chaumlp@gmail.com" class="pawspa-footer__contact-address">chaumlp@gmail.com</a>
+                    </div>
+                    <div class="pawspa-footer__contact-item">
+                        <img src="../../../public/assets/images/icons/phone.svg" alt="Phone" class="pawspa-footer__contact-icon">
+                        <a href="tel:0345663153" class="pawspa-footer__contact-address">0345663153</a>
+                    </div>
+                </div>
+                <div class="pawspa-footer__social">
+                    <a href="#" title="Instagram">
+                        <img src="../../../public/assets/images/icons/social-media/ins.svg" alt="Instagram"
+                            class="pawspa-footer__social-icon">
+                    </a>
+                    <a href="#" title="Facebook">
+                        <img src="../../../public/assets/images/icons/social-media/fb.svg" alt="Facebook"
+                            class="pawspa-footer__social-icon">
+                    </a>
+                    <a href="#" title="LinkedIn">
+                        <img src="../../../public/assets/images/icons/social-media/link.svg" alt="LinkedIn"
+                            class="pawspa-footer__social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="pawspa-footer__image">
+                <div>
+                    <div>
+                        <img src="../../../public/assets/images/footer/Rectangle 170.svg" alt="" aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pawspa-footer__category">
+                <div class="pawspa-footer__category-item">
+                    <h3 class="pawspa-footer__category-title">Dịch vụ</h3>
+                    <ul class="pawspa-footer__category-list">
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Spa</a>
+                        </li>
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Cắt tỉa lông</a>
+                        </li>
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Khách sạn lưu trú</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pawspa-footer__category-item">
+                    <h3 class="pawspa-footer__category-title">Nền tảng</h3>
+                    <ul class="pawspa-footer__category-list">
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Dịch vụ</a>
+                        </li>
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Blog/Tin tức</a>
+                        </li>
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Giới thiệu</a>
+                        </li>
+                        <li class="pawspa-footer__category-list-item">
+                            <a href="#" class="pawspa-footer__category-item-link">Liên lạc</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="pawspa-footer__image--left">
+            <img src="../../../public/assets/images/footer/footer-01.svg" alt="">
+        </div>
+        <div class="pawspa-footer__image--right">
+            <img src="../../../public/assets/images/footer/footer-02.svg" alt="">
+        </div>
+    </footer>
+    <!-- End: Footer -->
+
+    <script src="../../../public/assets/js/active-link.js"></script>
+
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
+    <script src="../../../public/assets/js/intl-phone.js"></script>
+</body>
+
+</html>
