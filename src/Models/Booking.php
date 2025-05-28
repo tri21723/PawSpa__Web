@@ -16,7 +16,6 @@ class Booking {
                     b.booking_id, b.booking_date, b.status, b.total_price, b.created_at,
                     o.order_code, s.name AS service_name
                 FROM bookings b
-                JOIN orders o ON b.order_id = o.order_id
                 JOIN booking_details bdt ON b.booking_id = bdt.booking_id
                 JOIN services s ON bdt.service_id = s.service_id
                 WHERE b.user_id = :userId";
