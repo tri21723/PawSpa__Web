@@ -78,7 +78,7 @@
                     $statusInfo = $statusLabels[$status] ?? ['label' => ucfirst($status), 'class' => ''];
                 ?>
                 <div class="booking-row">
-                    <div><?= htmlspecialchars($booking['order_code']) ?></div>
+                    <div><?= htmlspecialchars($booking['booking_id']) ?></div>
                     <div class="service-name"><span><?= htmlspecialchars($booking['service_name']) ?></span></div>
                     <div><?= htmlspecialchars($booking['booking_date']) ?></div>
                     <div>
