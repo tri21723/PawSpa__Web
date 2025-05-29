@@ -36,6 +36,32 @@ require_once("../../../pages/connect.php");
         <div class="admin-main__header">
             <h2 class="admin-main__title">Danh sách lịch hẹn</h2>
         </div>
+
+        <?php if (isset($_GET['success']) && $_GET['success'] === 'delete'): ?>
+            <div class="alert alert--success">
+                <i class="fas fa-check-circle"></i>
+                Xóa lịch hẹn thành công!
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert alert--danger">
+                <i class="fas fa-exclamation-circle"></i>
+                <?php
+                switch($_GET['error']) {
+                    case 'delete':
+                        echo "Không thể xóa lịch hẹn. Vui lòng thử lại!";
+                        break;
+                    case 'invalid_id':
+                        echo "ID lịch hẹn không hợp lệ!";
+                        break;
+                    default:
+                        echo "Có lỗi xảy ra. Vui lòng thử lại!";
+                }
+                ?>
+            </div>
+        <?php endif; ?>
+
         <div class="admin-controls">
             <a href="add.php" class="btn btn--primary">Thêm lịch hẹn</a>
         </div>
@@ -57,13 +83,21 @@ require_once("../../../pages/connect.php");
                 <tbody>
 <?php
 // Query lấy danh sách lịch hẹn
-$sql = "SELECT b.booking_id, a.name AS customer_name, a.email, s.name AS staff_name,
-    sv.name AS service_name, bd.price, b.status, b.booking_date, b.created_at
-    FROM accounts a
-    JOIN bookings b ON b.user_id = a.user_id
+$sql = "SELECT 
+    b.booking_id,
+    b.booking_date,
+    b.created_at,
+    b.status,
+    b.total_price as price,
+    a.name AS customer_name,
+    a.email,
+    st.name AS staff_name,  -- Changed this line
+    sv.name AS service_name
+    FROM bookings b
+    INNER JOIN accounts a ON b.user_id = a.user_id
     LEFT JOIN booking_details bd ON b.booking_id = bd.booking_id
     LEFT JOIN services sv ON bd.service_id = sv.service_id
-    LEFT JOIN staff s ON bd.staff_id = s.staff_id
+    LEFT JOIN staff st ON a.staff_id = st.staff_id  -- Changed this line
     ORDER BY b.created_at DESC";
 $res = $conn->query($sql);
 $stt = 1;
