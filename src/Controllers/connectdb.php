@@ -3,7 +3,7 @@ function connectDatabase() {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "petpet"; // Tên database
+$dbname = "petcareweb_db"; // Tên database
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
