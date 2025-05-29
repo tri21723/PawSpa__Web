@@ -27,8 +27,7 @@
                     </a>
                 </li>
                 <li class="admin-sidebar__item">
-                    <a href="/petcareweb_admin/pages/appointment/appointment-management.html"
-                        class="admin-sidebar__link">
+                    <a href="#" class="admin-sidebar__link">
                         <i class="fa-solid fa-calendar-check admin-sidebar__icon"></i>
                         <span class="admin-sidebar__label">Quản lý lịch hẹn</span>
                     </a>
