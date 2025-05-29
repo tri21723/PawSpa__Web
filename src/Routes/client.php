@@ -8,6 +8,8 @@ $router->get('/cart/finish', 'App\Controllers\Client\CartController@finish');
 $router->get('/cart/finish/success', 'App\Controllers\Client\CartController@success');
 $router->get('/booking', 'App\Controllers\Client\BookingController@index');
 
+
+$router->get('/notifications', 'App\Controllers\Client\NotificationController@index');
 $router->get('/about', function () {
     echo 'Giới thiệu client!';
 });

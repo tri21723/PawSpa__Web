@@ -1,7 +1,7 @@
 <?php
 // Define the root directory
 define('ROOT_DIR', dirname(__DIR__));
-define('VIEW_DIR', ROOT_DIR . '/src/views');
+define('VIEW_DIR', ROOT_DIR . '/src/Views');
 
 // Require autoload và lib.php trước
 require_once ROOT_DIR . '/vendor/autoload.php';
@@ -12,9 +12,18 @@ define('BASE_URL', 'http://localhost/PawSpa__Web/public');
 
 // Kết nối database
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=petcareweb_db", 'root', '');
+    $conn = new PDO("mysql:host=localhost;dbname=petcareweb_db", 'root', '', [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+
+    // Make connection available globally
+    global $container;
+    $container = new stdClass();
+    $container->db = $conn;
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    error_log("Connection failed: " . $e->getMessage());
+    die("Không thể kết nối database");
 }
 
 // Tạo Router instance

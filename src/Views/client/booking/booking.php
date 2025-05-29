@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="#">Tài khoản của tôi</a></li>
                 <li class="active"><a href="#">Đặt lịch</a></li>
-                <li><a href="#">Thông báo</a></li>
+                <li><a href="<?= BASE_URL ?>/notifications">Thông báo</a></li>
             </ul>
         </nav>
     </aside>

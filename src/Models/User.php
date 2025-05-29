@@ -1,13 +1,12 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
 use PDO;
 
-class User {
-
-    private PDO $db; // kết nối database
-    private string $table = 'accounts'; // tên bảng trong database
+class User
+{
+    private $db;
 
     // các trường khớp với bảng accounts
     public $user_id;
@@ -22,16 +21,37 @@ class User {
     public $updated_at;
     public $staff_id;
 
-    public function __construct(PDO $db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
     // Lấy tất cả dữ liệu
-    public function findAll() {
-        $query = "SELECT * FROM {$this->table}";
+    public function findAll()
+    {
+        $query = "SELECT * FROM accounts";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getUserById($userId)
+    {
+        $sql = "SELECT 
+                user_id,
+                name,
+                email,
+                phone,
+                role,
+                avatar_url
+                FROM accounts 
+                WHERE user_id = :userId";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     // Có thể bổ sung thêm các hàm tiện ích khác nếu cần
