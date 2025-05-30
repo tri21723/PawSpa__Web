@@ -29,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("ii", $service_id, $id);
         $stmt->execute();
 
-        $success = "Cập nhật lịch hẹn thành công!";
+        // $success = "Cập nhật lịch hẹn thành công!";
+        header("Location: management.php?success=1");
+        exit();
     } catch(Exception $e) {
         $error = "Có lỗi xảy ra: " . $e->getMessage();
     }
